@@ -1,0 +1,14 @@
+version: "3.2"
+
+services:
+    app:
+        build: docker/php
+        depends_on:
+            - db
+        volumes:
+            - .:/app
+
+    db:
+        image: mysql:5.7
+        environment:
+            MYSQL_ROOT_PASSWORD: root
